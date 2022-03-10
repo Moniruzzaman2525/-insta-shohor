@@ -54,7 +54,7 @@ const createPost = (post) => {
   const image = post.image;
   const div = document.createElement("article");
   div.classList.add("post");
-  // console.log(post.comments[0].user)
+  console.log(post.id)
   div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
@@ -143,6 +143,8 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+  document.getElementById('repo').style.display = 'none';
+  document.getElementById('like').style.display = 'block';
   document.getElementById("liked").innerHTML = '';
   const likedPosts = getLikedPosts();
   // console.log(likedPosts)
@@ -153,6 +155,8 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
+  document.getElementById('like').style.display = 'none';
+  document.getElementById('repo').style.display = 'block';
   document.getElementById("reported").innerHTML = '';
   const reportedPosts = getReportedPosts();
   reportedPosts.forEach((post) => {
